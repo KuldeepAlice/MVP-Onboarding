@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Mars_Project.Utilities
 {
-    public class CommonDriver
+    public class  CommonDriver
+
     {
         public static IWebDriver driver;
 
