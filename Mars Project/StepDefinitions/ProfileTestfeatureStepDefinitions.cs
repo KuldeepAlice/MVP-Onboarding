@@ -1,6 +1,7 @@
 using Mars_Project.Pages;
 using Mars_Project.Utilities;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
@@ -10,8 +11,14 @@ namespace Mars_Project.StepDefinitions
     [Binding]
     public class ProfileTestfeatureStepDefinitions: CommonDriver
     {
-        LoginPage loginPageObj = new LoginPage();
-        ProfilePage profilePageObj = new ProfilePage();
+        LoginPage loginPageObj;
+        ProfilePage profilePageObj;
+
+        public ProfileTestfeatureStepDefinitions()
+        {
+            this.loginPageObj = new LoginPage();
+            this.profilePageObj = new ProfilePage(driver);
+        }
 
         [Given(@"I logged into local host website successfully")]
         public void GivenILoggedIntoLocalHostWebsiteSuccessfully()
@@ -75,7 +82,7 @@ namespace Mars_Project.StepDefinitions
         [When(@"I deleted skills in profile page")]
         public void WhenIDeletedSkillsInProfilePage()
         {
-            profilePageObj.deleteSkills(driver);
+            profilePageObj.DeleteSkills(driver);
         }
 
         [Then(@"skills have been deleted successfully")]
