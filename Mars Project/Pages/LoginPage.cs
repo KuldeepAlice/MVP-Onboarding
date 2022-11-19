@@ -16,6 +16,9 @@ namespace Mars_Project.Pages
          private IWebElement usernameTextbox => driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input"));
          private IWebElement passwordTextbox => driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input"));
          private IWebElement loginButton => driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
+
+        
+
         public void LoginSteps(IWebDriver driver)
         {
              //Launch Local host website
@@ -23,6 +26,7 @@ namespace Mars_Project.Pages
             driver.Navigate().GoToUrl("http://localhost:5000/");
 
             //Click on Sign Button
+           
             signButton.Click();
 
             //Enter Username
@@ -33,6 +37,7 @@ namespace Mars_Project.Pages
 
             //Click on login button
             loginButton.Click();
+            Thread.Sleep(3000);
             
 
         }
